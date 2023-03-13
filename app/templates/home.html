@@ -1,14 +1,42 @@
 {% extends "base.html" %}
-
-{% block css %}{% endblock %}
-
-{% block main %}
-<div class="p-5 mb-4 bg-light rounded-3 border">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">Hello, world!</h1>
-    <p>This is a simple starter template for a Flask Application</p>
-  </div>
-</div>
+{% block content %}
+  <h1>ADD NEW PROPERTY</h1>
+  <form method="post" action="{{ url_for('create_property') }}" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div>
+      <label for="title">Property Title:</label>
+      {{ form.title }}
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      {{ form.description }}
+    </div>
+    <div class="grid">
+      <div>
+        <label for="bedrooms">No. of Rooms:</label>
+        {{ form.bedrooms }}
+      </div>
+      <div>
+        <label for="bathrooms">No. of Bathrooms:</label>
+        {{ form.bathrooms }}
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        {{ form.price }}
+      </div>
+      <div>
+        <label for="type">Property Type:</label>
+        {{ form.type }}
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        {{ form.location }}
+      </div>
+    </div>
+    <div>
+      <label for="photo">Photo:</label>
+      {{ form.photo }}
+    </div>
+    <button type="submit">Add Property</button>
+  </form>
 {% endblock %}
-
-{% block js %}{% endblock %}
